@@ -2,6 +2,7 @@ package net.lopotichaaaa.simplecommandmacros;
 
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -34,6 +35,9 @@ public class SimpleCommandMacros
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -47,6 +51,7 @@ public class SimpleCommandMacros
 
     }
 
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
@@ -58,10 +63,15 @@ public class SimpleCommandMacros
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+        }
+        @SubscribeEvent
+        public static void registerBindings(RegisterKeyMappingsEvent event){
+            ModKeyMappings.register(event);
         }
     }
 }
