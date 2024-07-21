@@ -1,3 +1,5 @@
 {
-  "key.simplecommandmacros.open_macro_menu" : "Open Macros Menu"
+  "key.simplecommandmacros.open_macro_menu" : "Open Macros Menu",
+
+  "menu.simplecommandmacros.editmacros.title" : "Macro Menu"
 }
